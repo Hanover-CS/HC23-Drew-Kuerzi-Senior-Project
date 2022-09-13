@@ -1,6 +1,6 @@
-##College Football Live Stats: NCAA Division 1
+## College Football Live Stats: NCAA Division 1
 
-###Main Features
+### Main Features
 This android application will allow college football enthusiast to have updated information on all games.
 Not everyone has access to tv networks that show the football games they want to watch so a much easier way is to get live 
 game stats all on your mobile device. These statistics will be game times, tv channels, live updates, such as score, quarters, time, down marker, and possession.
@@ -8,7 +8,7 @@ There will be a list of all Division 1 college football teams and once you selec
 live stats. Live stats wll only be available during a game period while the schedule will be available at all times.
 The app will provide the needed information to stay up to date on your favorite college football team.
 
-###Similar Applications, and Comparisons
+### Similar Applications, and Comparisons
 There are applications already available on the google play store, such as [Sports Alert][4] and [Scores App][3]. Sports Alert sends important notifications
 to you device so you are aware of anything someone may want to know about a given game. My application will not have notifications, but the
 information on the notifications will be similar to what you can find and follow on my app. The Scores App will be very similar to my application,
