@@ -29,9 +29,9 @@
 
 
 ## Programming Language
-XML is the markup that will be used for the display and layout of viewable objects in the app while Java will be the programming language to control the behavior of those viewed objects.
-Java language is an object oriented programming where functions revolve around the objects created.
-For example XML will be used to get a button to appear on the screen and the button would be the object that Java functions will use to make something happen, such as move to the next page when the button is pressed.
+    XML is the markup that will be used for the display and layout of viewable objects in the app while Java will be the programming language to control the behavior of those viewed objects.
+    Java language is an object oriented programming where functions revolve around the objects created.
+    For example XML will be used to get a button to appear on the screen and the button would be the object that Java functions will use to make something happen, such as move to the next page when the button is pressed.
 
 [1]: https://play.google.com/store/apps/details?id=com.tedkeilman.nflSchedule
 [2]: https://play.google.com/store/apps/details?id=com.gotv.nflgamecenter.us.lite
