@@ -27,8 +27,11 @@
    
 ## API
 
+    I will be using [Sportsdata.io][5] as my api where i will access all my information for team schedules, scores, and individual player stats. Whenever someone
+    requests to view a games box score then the app will recieve the updated information in a json or xml filefrom the api to be parsed and displayed on the app.
 
 ## Programming Language
+
     XML is the markup that will be used for the display and layout of viewable objects in the app while Java will be the programming language to control the behavior of those viewed objects.
     Java language is an object oriented programming where functions revolve around the objects created.
     For example XML will be used to get a button to appear on the screen and the button would be the object that Java functions will use to make something happen, such as move to the next page when the button is pressed.
@@ -37,9 +40,4 @@
 [2]: https://play.google.com/store/apps/details?id=com.gotv.nflgamecenter.us.lite
 [3]: https://play.google.com/store/apps/details?id=com.espn.score_center&gl=US
 [4]: https://play.google.com/store/apps/details?id=lunosoftware.nflscores&hl=en
-
-
-[1]: https://www.espn.com/college-football/schedule
-[2]: https://www.ncaa.com/news/football/article/college-football-tv-schedule-game-times-preview
-[3]: https://play.google.com/store/apps/details?id=com.sports.schedules.football.ncaa&gl=US
-[4]: https://play.google.com/store/apps/details?id=lunosoftware.ncaafbscores
+[5]: https://sportsdata.io/developers/api-documentation/nfl
