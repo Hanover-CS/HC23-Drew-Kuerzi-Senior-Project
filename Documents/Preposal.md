@@ -15,7 +15,7 @@ This app will be very easy to access and traverse to find what your looking for.
 
 
 ### Similar Applications, and Comparisons
-There are applications that already exist on the the google play store, such as [Sports Alert][4], [NFL Mobile][2], [NFL Schedule and Scores 2022][1], and [Espn][3].
+There are applications that already exist on the the google play store, such as [Sports Alert: NFL Edition][4], [NFL Mobile][2], [NFL Scores and Schedule 2022][1], and [Espn][3].
 All these apps have stats over the NFL teams and players that you can access in some way, as well as other features too.Sports Alert sends important notifications
 to you device so you are aware of anything someone may want to know about a given game right once it happens. My application will not have notifications, but the
 information on the notifications will be similar to what you can find on the box scores within my app. They also have a feature that will be similar, where you can view that stats of individual teams and players.

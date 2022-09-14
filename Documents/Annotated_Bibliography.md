@@ -2,28 +2,28 @@
 
 ## Competing applications
 
-1. [ESPN LINK][1]
-   Espn is a website or an app for viewing all college games schedules, scores, and details of an upcoming game.
-   They also provide a streaming service to watch these games. This will be similar to my app except mine will focus
-   on college football primarily but mine will not have a streaming application for the games. The main focus is to
-   have dates, scores, location or other information like weather and ticket prices that may be important for an upcoming game.
+1.  [NFL Scores and Schedule 2022][1]
+    This app has a main focus on providing a viewer with schedules of each team and the scores of their games. Along with this
+    they provide a live score update every 30 seconds. The difference from my app is that mine will provide major stats of the game, while I also will have
+    scores and schedules for each team.
  
-2. [NCAA LINK][2]
-    Ncaa website that has a list of every division 1 college football game and gives its time and tv channel to watch.
-    You can also find a rankings list of the top 25 teams and also storylines for certain teams. 
-    My app will be similar at listing all the teams in division 1 college football along with their date/time and the tv station they wil be playing on.
+2. [NFL Mobile][2]
+   NFL Mobile provides almost everything you need to follow any game you are interested in, but it comes with a price.
+   The live streaming services are not provided for free but the minute-by-minute scoring and stat updates are available with no cost.
+   This app is primarily for following games as they are played while mine is for you to easily access a box score of any game for anyone who may
+   not have the money or time to follow a live game or would like to recap on an existing game from before.
 
-3. [SCORES APP: COLLEGE FOOTBALL APP][3]
-    This is an app on the google play store that provides live scores, notifications, updated stats, previews, tv channel, rankings, etc.
-    This app will be very similar to the features my app will have which will not contain as much information as the websites have but still enough to cover the games.
-    The main focus is to allow someone to follow the games that may not have access to live video of the game.
+3. [ESPN LINK][3]
+   Espn is a website or an app for viewing all levels of football and their game schedules, scores, details, and news headlines of an upcoming game.
+   They do not provide a streaming service to watch NFL games, but they do for colleges. This will be similar to my app except mine will focus
+   on NFL football primarily but mine will not have news headlines and live updates. The main focus for my app
+   is to be able to retrieve a box score of any NFL game that has already been played.
 
-4. [SPORTS ALERTS: NCAA FOOTBALL EDITION][4] 
+4. [SPORTS ALERTS: NFL Edition][4] 
     This is another app from the google play store that is mainly for fast live alerts for players and in game details.
     This app provides all the main details such as quarter changes, lead changes, updated score, close game alert, long distance pass or run plays, and more.
     There are also other features that allow you to keep track of schedules and other interesting stats around the teams.
-    The app I am building will relate closely to this as it does not revolve closely to other sports like the websites mentioned before,
-    but instead focuses on college football itself, and providing people with everything they need to follow their teams.
+    My app will not have notifications of these live plays but all this will be accessible with the box score once the game has finished.
    
 ## API
 
@@ -32,6 +32,12 @@
 XML is the markup that will be used for the display and layout of viewable objects in the app while Java will be the programming language to control the behavior of those viewed objects.
 Java language is an object oriented programming where functions revolve around the objects created.
 For example XML will be used to get a button to appear on the screen and the button would be the object that Java functions will use to make something happen, such as move to the next page when the button is pressed.
+
+[1]: https://play.google.com/store/apps/details?id=com.tedkeilman.nflSchedule
+[2]: https://play.google.com/store/apps/details?id=com.gotv.nflgamecenter.us.lite
+[3]: https://play.google.com/store/apps/details?id=com.espn.score_center&gl=US
+[4]: https://play.google.com/store/apps/details?id=lunosoftware.nflscores&hl=en
+
 
 [1]: https://www.espn.com/college-football/schedule
 [2]: https://www.ncaa.com/news/football/article/college-football-tv-schedule-game-times-preview
