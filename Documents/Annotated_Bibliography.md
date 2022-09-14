@@ -19,22 +19,22 @@
    on NFL football primarily but mine will not have news headlines and live updates. The main focus for my app
    is to be able to retrieve a box score of any NFL game that has already been played.
 
-4. [SPORTS ALERTS: NFL Edition][4] 
-    This is another app from the google play store that is mainly for fast live alerts for players and in game details.
+4. [SPORTS ALERTS: NFL Edition][4]
+   This is another app from the google play store that is mainly for fast live alerts for players and in game details.
     This app provides all the main details such as quarter changes, lead changes, updated score, close game alert, long distance pass or run plays, and more.
     There are also other features that allow you to keep track of schedules and other interesting stats around the teams.
     My app will not have notifications of these live plays but all this will be accessible with the box score once the game has finished.
    
 ## API
 
-    I will be using [Sportsdata.io][5] as my api where i will access all my information for team schedules, scores, and individual player stats. Whenever someone
-    requests to view a games box score then the app will recieve the updated information in a json or xml filefrom the api to be parsed and displayed on the app.
+I will be using [Sportsdata.io][5] as my api where i will access all my information for team schedules, scores, and individual player stats. Whenever someone
+requests to view a games box score then the app will recieve the updated information in a json or xml filefrom the api to be parsed and displayed on the app.
 
 ## Programming Language
 
-    XML is the markup that will be used for the display and layout of viewable objects in the app while Java will be the programming language to control the behavior of those viewed objects.
-    Java language is an object oriented programming where functions revolve around the objects created.
-    For example XML will be used to get a button to appear on the screen and the button would be the object that Java functions will use to make something happen, such as move to the next page when the button is pressed.
+XML is the markup that will be used for the display and layout of viewable objects in the app while Java will be the programming language to control the behavior of those viewed objects.
+Java language is an object oriented programming where functions revolve around the objects created.
+For example XML will be used to get a button to appear on the screen and the button would be the object that Java functions will use to make something happen, such as move to the next page when the button is pressed.
 
 [1]: https://play.google.com/store/apps/details?id=com.tedkeilman.nflSchedule
 [2]: https://play.google.com/store/apps/details?id=com.gotv.nflgamecenter.us.lite
