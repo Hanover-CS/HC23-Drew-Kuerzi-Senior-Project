@@ -12,6 +12,3 @@ plugins:
   - jekyll-remote-theme # add this line to the plugins list if you already have one
 title: [Drew Kuerzi's Senior Project Proposal]
 description: [This site describes the features of my project along with similar applications and their features.]
-github:
-  zip_url: https://hanover-cs.github.io/HC23-Drew-Kuerzi-Senior-Project/
-  another_url: Drew_Kuerzi/
