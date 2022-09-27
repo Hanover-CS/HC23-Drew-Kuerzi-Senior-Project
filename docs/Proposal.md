@@ -5,7 +5,7 @@ end-of-game stats all on your mobile device. This android application will allow
 Many people enjoy fantasy football or just keeping up to date on what happens in the NFL,
 so this app will have all the results from a game available for you right at your fingertips.
 
-The reason for someone to download this app, would be anyone who would like to view the results quickly and easily
+The reason for someone to download this app, would be anyone who would like to view the results quickly and easily.
 When the application is opened on your android device, there will be a list of all the NFL teams. From that screen you will pick the team you would like to retrieve a box score from. 
 After that, the team's entire schedule will be shown for you to pick the specific game and view the final box score.
 With the box score you will have access to the score of the game, offensive stats, defensive stats, and any other touchdowns from special teams.
