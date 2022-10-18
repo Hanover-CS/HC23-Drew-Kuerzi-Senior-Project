@@ -8,7 +8,6 @@ public class SportsDataIOTest {
     String baseUrl = "https://api.sportsdata.io/v3/nfl/scores/json/GameStatsByWeek";
     String season = "2022REG";
     String week = "1";
-    String key = "a3933e1e58d54f1dac244a8dda94b7c4";
 //    SportsDataIOReader io = new SportsDataIOReader(baseUrl,season, week, key);
 
     @Test
