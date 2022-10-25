@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GameLog</string>
     <string name="arizona_cardinals">Arizona Cardinals</string>
+    <string name="week_1">Week 1</string>
 </resources>
