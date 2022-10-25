@@ -6,16 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.home_screen);
     }
 
     public void nextPage(View view){
-        Intent i = new Intent(MainActivity.this, MainActivity2.class);
-        startActivity(i);
+        switch (view.getId()) {
+            case (R.id.arizona):
+                Intent i = new Intent(HomeScreen.this, ArizonaSchedule.class);
+                startActivity(i);
+                break;
+        }
     }
 }
