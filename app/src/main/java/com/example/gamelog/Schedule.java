@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class ArizonaSchedule extends AppCompatActivity {
+public class Schedule extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class ArizonaSchedule extends AppCompatActivity {
     public void nextPage(View view){
         switch (view.getId()) {
             case (R.id.week1):
-                Intent i = new Intent(ArizonaSchedule.this, ArizonaBoxScore.class);
+                Intent i = new Intent(Schedule.this, ArizonaBoxScore.class);
                 startActivity(i);
                 break;
         }

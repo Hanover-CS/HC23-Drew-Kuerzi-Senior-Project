@@ -13,7 +13,7 @@
             android:name=".ArizonaBoxScore"
             android:exported="true" />
         <activity
-            android:name=".ArizonaSchedule"
+            android:name=".Schedule"
             android:exported="true" />
         <activity
             android:name=".HomeScreen"

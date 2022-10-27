@@ -17,14 +17,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <Button
-            android:id="@+id/arizona"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="@string/arizona_cardinals"
-            android:onClick="nextPage"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                    android:id="@+id/arizona"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="@string/arizona_cardinals"
+                    android:onClick="nextPage"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <Button
+                android:id="@+id/atlanta"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/atlanta_falcons"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/arizona" />
+
+
         </LinearLayout>
     </ScrollView>
 
