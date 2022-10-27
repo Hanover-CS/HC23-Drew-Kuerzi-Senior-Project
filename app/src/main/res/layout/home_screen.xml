@@ -33,6 +33,240 @@
                 android:onClick="nextPage"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/arizona" />
+            <Button
+                android:id="@+id/baltimore"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/baltimore_ravens"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/atlanta" />
+            <Button
+                android:id="@+id/buffalo"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/buffalo_bills"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/baltimore" />
+            <Button
+                android:id="@+id/carolina"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/carolina_panthers"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buffalo" />
+            <Button
+                android:id="@+id/chicago"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/chicago_bears"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carolina" />
+            <Button
+                android:id="@+id/cincinnati"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/cincinnati_bengals"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chicago" />
+            <Button
+                android:id="@+id/cleveland"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/cleveland_browns"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cincinnati" />
+            <Button
+                android:id="@+id/dallas"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/dallas_cowboys"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cleveland" />
+            <Button
+                android:id="@+id/denver"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/denver_broncos"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dallas" />
+            <Button
+                android:id="@+id/detroit"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/detroit_lions"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/denver" />
+            <Button
+                android:id="@+id/green_bay"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/green_bay_packers"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detroit" />
+            <Button
+                android:id="@+id/houston"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/houston_texans"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/green_bay" />
+            <Button
+                android:id="@+id/indianapolis"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/indianapolis_colts"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/houston" />
+            <Button
+                android:id="@+id/jacksonville"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/jacksonville_jaguars"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/indianapolis" />
+            <Button
+                android:id="@+id/kansas_city"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/kansas_city_chiefs"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/jacksonville" />
+            <Button
+                android:id="@+id/las_vegas"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/las_vegas_raiders"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/kansas_city" />
+            <Button
+                android:id="@+id/los_angeles"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/los_angeles_rams"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/las_vegas" />
+            <Button
+                android:id="@+id/miami"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/miami_dolphins"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/los_angeles" />
+            <Button
+                android:id="@+id/minnesota"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/minnesota_vikings"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/miami" />
+            <Button
+                android:id="@+id/new_england"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/new_england_patriots"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/minnesota" />
+            <Button
+                android:id="@+id/new_orleans"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/new_orleans_saints"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/new_england" />
+            <Button
+                android:id="@+id/new_york"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/new_york_giants"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/new_orleans" />
+            <Button
+                android:id="@+id/new_york2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/new_york_jets"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/new_york" />
+            <Button
+                android:id="@+id/philadelphia"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/philadelphia_eagles"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/new_york2" />
+            <Button
+                android:id="@+id/pittsburgh"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/pittsburgh_steelers"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/philadelphia" />
+            <Button
+                android:id="@+id/san_francisco"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/san_francisco_49ers"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pittsburgh" />
+            <Button
+                android:id="@+id/seattle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/seattle_seahawks"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/san_francisco" />
+            <Button
+                android:id="@+id/tampa_bay"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/tampa_bay_buccaneers"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/seattle" />
+            <Button
+                android:id="@+id/tennessee"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/tennessee_titans"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tampa_bay" />
+            <Button
+                android:id="@+id/washington"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/washington_commanders"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tennessee" />
+
+
 
 
         </LinearLayout>

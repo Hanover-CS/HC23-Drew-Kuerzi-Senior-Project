@@ -1,7 +1,6 @@
 package com.example.gamelog;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,12 +12,12 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ArizonaBoxScore extends AppCompatActivity {
+public class BoxScore extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arizona_box_score);
+        setContentView(R.layout.box_score);
         displayScore(getApplicationContext(), "arizona1.json", 0);
         displayPlayer(getApplicationContext(), "arizona1stats.json", 0);
 

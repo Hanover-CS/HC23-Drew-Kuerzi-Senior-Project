@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameLog">
         <activity
-            android:name=".ArizonaBoxScore"
+            android:name=".BoxScore"
             android:exported="true" />
         <activity
             android:name=".Schedule"

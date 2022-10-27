@@ -15,11 +15,17 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void nextPage(View view){
-        switch (view.getId()) {
-            case (R.id.arizona):
-                Intent i = new Intent(HomeScreen.this, ArizonaSchedule.class);
-                startActivity(i);
-                break;
-        }
+        Intent i = new Intent(HomeScreen.this, Schedule.class);
+        startActivity(i);
+//        switch (view.getId()) {
+//            case (R.id.arizona):
+//                Intent a = new Intent(HomeScreen.this, Schedule.class);
+//                startActivity(i);
+//                break;
+//            case (R.id.atlanta):
+//                Intent i = new Intent(HomeScreen.this, Schedule.class);
+//                startActivity(i);
+//                break;
+//        }
     }
 }
