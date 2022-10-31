@@ -21,10 +21,165 @@
                 android:id="@+id/week1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:tag="@string/week_1"
                 android:text="@string/week_1"
                 android:onClick="nextPage"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_2"
+                android:text="@string/week_2"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_3"
+                android:text="@string/week_3"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_4"
+                android:text="@string/week_4"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week5"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_5"
+                android:text="@string/week_5"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week6"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_6"
+                android:text="@string/week_6"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week7"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_7"
+                android:text="@string/week_7"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week8"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_8"
+                android:text="@string/week_8"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week9"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_9"
+                android:text="@string/week_9"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week10"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_10"
+                android:text="@string/week_10"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week11"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_11"
+                android:text="@string/week_11"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week12"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_12"
+                android:text="@string/week_12"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week13"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_13"
+                android:text="@string/week_13"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week14"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_14"
+                android:text="@string/week_14"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week15"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_15"
+                android:text="@string/week_15"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week16"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_16"
+                android:text="@string/week_16"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week17"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_17"
+                android:text="@string/week_17"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/week18"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="@string/week_18"
+                android:text="@string/week_18"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </LinearLayout>
     </ScrollView>
 

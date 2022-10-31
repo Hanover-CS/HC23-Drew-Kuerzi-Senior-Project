@@ -32,4 +32,21 @@
     <string name="tampa_bay_buccaneers">TAMPA BAY BUCCANEERS</string>
     <string name="tennessee_titans">TENNESSEE TITANS</string>
     <string name="washington_commanders">WASHINGTON COMMANDERS</string>
+    <string name="week_2">Week 2</string>
+    <string name="week_3">Week 3</string>
+    <string name="week_4">Week 4</string>
+    <string name="week_5">Week 5</string>
+    <string name="week_6">Week 6</string>
+    <string name="week_7">Week 7</string>
+    <string name="week_8">Week 8</string>
+    <string name="week_9">Week 9</string>
+    <string name="week_10">Week 10</string>
+    <string name="week_11">Week 11</string>
+    <string name="week_12">Week 12</string>
+    <string name="week_13">Week 13</string>
+    <string name="week_14">Week 14</string>
+    <string name="week_15">Week 15</string>
+    <string name="week_16">Week 16</string>
+    <string name="week_17">Week 17</string>
+    <string name="week_18">Week 18</string>
 </resources>

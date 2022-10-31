@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Schedule extends AppCompatActivity {
+    private String week;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +16,7 @@ public class Schedule extends AppCompatActivity {
     }
 
     public void nextPage(View view){
+        week = view.getTag().toString();
         Intent i = new Intent(Schedule.this, BoxScore.class);
         startActivity(i);
 //        switch (view.getId()) {
@@ -23,5 +25,9 @@ public class Schedule extends AppCompatActivity {
 //                startActivity(i);
 //                break;
 //        }
+    }
+
+    public String getWeek(){
+        return week;
     }
 }
