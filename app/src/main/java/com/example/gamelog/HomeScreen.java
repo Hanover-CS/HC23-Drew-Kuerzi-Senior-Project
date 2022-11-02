@@ -8,7 +8,7 @@ import android.view.View;
 
 public class HomeScreen extends AppCompatActivity {
 
-    private String team;
+    private static String team;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,19 +20,10 @@ public class HomeScreen extends AppCompatActivity {
         team = view.getTag().toString();
         Intent i = new Intent(HomeScreen.this, Schedule.class);
         startActivity(i);
-//        switch (view.getId()) {
-//            case (R.id.arizona):
-//                Intent a = new Intent(HomeScreen.this, Schedule.class);
-//                startActivity(i);
-//                break;
-//            case (R.id.atlanta):
-//                Intent i = new Intent(HomeScreen.this, Schedule.class);
-//                startActivity(i);
-//                break;
-//        }
+
     }
 
-    public String getTeam() {
+    public static String getTeam() {
         return team;
     }
 }

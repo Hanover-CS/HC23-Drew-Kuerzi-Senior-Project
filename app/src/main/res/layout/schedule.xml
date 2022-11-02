@@ -17,6 +17,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/team"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Team Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <Button
                 android:id="@+id/week1"
                 android:layout_width="match_parent"
