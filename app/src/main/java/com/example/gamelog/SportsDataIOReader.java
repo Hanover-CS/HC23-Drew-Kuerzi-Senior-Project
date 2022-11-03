@@ -10,10 +10,11 @@ import java.net.URLEncoder;
 
 public class SportsDataIOReader {
     private String urlString;
+    private String key;
 
-    public SportsDataIOReader(String baseUrl, String season, String week, String key){
+    public SportsDataIOReader(String baseUrl, String week, String team){
         try {
-            urlString = baseUrl + URLEncoder.encode(season, "UTF-8") + URLEncoder.encode(week, "UTF-8");
+            urlString = baseUrl + URLEncoder.encode("2022REG", "UTF-8") + URLEncoder.encode(week, "UTF-8");
             if(key != null) {
                 urlString += URLEncoder.encode("?key=", "UTF-8") + key;
             }
