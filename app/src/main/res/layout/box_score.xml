@@ -30,33 +30,14 @@
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
+            android:id="@+id/scroll_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="parent">
 
-        <TextView
-            android:id="@+id/player1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Player1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/player2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Player2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/player1" />
-        <TextView
-            android:id="@+id/player3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Player3"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/player2" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
 package com.example.gamelog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -18,9 +20,20 @@ public class BoxScore extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.box_score);
+//        In the future instead of just one file it will use the SportsDataIO with the saved team and week to retrieve json file
         displayScore(getApplicationContext(), "arizona1.json", 0);
-        displayPlayer(getApplicationContext(), "arizona1stats.json", 0);
-
+        LinearLayout ll = (LinearLayout) findViewById(R.id.scroll_layout);
+        int arrSize = 0;
+        try {
+            arrSize = new JSONArray(getJSONString(getApplicationContext(), "arizona1stats.json")).length();
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < arrSize; i++) {
+            TextView tv = new TextView(this);
+            tv.setText(getPlayerStats(getApplicationContext(), "arizona1stats.json", i));
+            ll.addView(tv);
+        }
     }
 
     public String getJSONString(Context context, String filename) throws IOException, JSONException {
@@ -40,7 +53,7 @@ public class BoxScore extends AppCompatActivity {
         return jsonString;
     }
 
-    public void displayScore(Context context, String filename, int index){
+    public void displayScore(Context context, String filename, int index) {
         JSONArray obj = null;
         try {
             obj = new JSONArray(getJSONString(context, filename));
@@ -63,7 +76,7 @@ public class BoxScore extends AppCompatActivity {
         away.setText("Away Score: " + awayScore);
     }
 
-    public void displayPlayer(Context context, String filename, int index){
+    public String getPlayerStats(Context context, String filename, int index) {
         JSONArray obj = null;
         try {
             obj = new JSONArray(getJSONString(context, filename));
@@ -76,28 +89,60 @@ public class BoxScore extends AppCompatActivity {
         String playerStats = null;
         try {
             playerName = obj.getJSONObject(index).getString("Name");
-            if(obj.getJSONObject(index).getString("Position").equals("QB")){
-                playerStats = ": Pass Attempts: " + obj.getJSONObject(index).getString("PassingAttempts")
-                        + " Completions: " + obj.getJSONObject(index).getString("PassingCompletions")
-                        + " Passing Yards: " + obj.getJSONObject(index).getString("PassingYards")
-                        + " Touchdowns: " + obj.getJSONObject(index).getJSONArray("ScoringDetails").length();
+            if (obj.getJSONObject(index).getString("Position").equals("QB")) {
+                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
+                        + " Pass Attempts: " + obj.getJSONObject(index).getString("PassingAttempts") + "\n"
+                        + " Completions: " + obj.getJSONObject(index).getString("PassingCompletions") + "\n"
+                        + " Passing Yards: " + obj.getJSONObject(index).getString("PassingYards") + "\n"
+                        + " Touchdowns: " + obj.getJSONObject(index).getJSONArray("ScoringDetails").length() + "\n";
+                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+            } else if (obj.getJSONObject(index).getString("Position").equals("WR")) {
+                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
+                        + ": Targets: " + obj.getJSONObject(index).getString("ReceivingTargets") + "\n"
+                        + " Receptions: " + obj.getJSONObject(index).getString("Receptions") + "\n"
+                        + " Receiving Yards: " + obj.getJSONObject(index).getString("ReceivingYards") + "\n"
+                        + " Touchdowns: " + obj.getJSONObject(index).getString("ReceivingTouchdowns") + "\n";
+                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+            } else if (obj.getJSONObject(index).getString("Position").equals("TE")) {
+                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
+                        + ": Targets: " + obj.getJSONObject(index).getString("ReceivingTargets") + "\n"
+                        + " Receptions: " + obj.getJSONObject(index).getString("Receptions") + "\n"
+                        + " Receiving Yards: " + obj.getJSONObject(index).getString("ReceivingYards") + "\n"
+                        + " Touchdowns: " + obj.getJSONObject(index).getString("ReceivingTouchdowns") + "\n";
+                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+            } else if (obj.getJSONObject(index).getString("Position").equals("RB")) {
+                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
+                        + ": Rush Attempts: " + obj.getJSONObject(index).getString("RushingAttempts") + "\n"
+                        + " Rushing Yards: " + obj.getJSONObject(index).getString("RushingYards") + "\n"
+                        + " Touchdowns: " + obj.getJSONObject(index).getString("RushingTouchdowns") + "\n";
+                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+            } else if (obj.getJSONObject(index).getString("PositionCategory").equals("DEF")) {
+                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
+                        + ": Passes Defended: " + obj.getJSONObject(index).getString("PassesDefended") + "\n"
+                        + " Interceptions: " + obj.getJSONObject(index).getString("Interceptions") + "\n"
+                        + " Sacks: " + obj.getJSONObject(index).getString("Sacks") + "\n"
+                        + " Fumbles Forced: " + obj.getJSONObject(index).getString("FumblesForced") + "\n"
+                        + " Solo Tackles: " + obj.getJSONObject(index).getString("SoloTackles") + "\n"
+                        + " Assisted Tackles: " + obj.getJSONObject(index).getString("AssistedTackles") + "\n";
+                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+            } else if (obj.getJSONObject(index).getString("Position").equals("OL")) {
+                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n";
+                playerStats = getStartedString(index, obj, playerStats, ": Started this game \n", ": Did not start this game \n");
             }
-            else if(obj.getJSONObject(index).getString("Position").equals("WR")){
-                playerStats = ": Targets: " + obj.getJSONObject(index).getString("ReceivingTargets")
-                        + " Receptions: " + obj.getJSONObject(index).getString("Receptions")
-                        + " ReceivingYards: " + obj.getJSONObject(index).getString("ReceivingYards")
-                        + " Touchdowns: " + obj.getJSONObject(index).getString("ReceivingTouchdowns");
-            }
-            else if(obj.getJSONObject(index).getString("Position").equals("RB")){
-                playerStats = ": RushAttempts: " + obj.getJSONObject(index).getString("RushingAttempts")
-                        + " RushingYards: " + obj.getJSONObject(index).getString("RushingYards")
-                        + " Touchdowns: " + obj.getJSONObject(index).getString("RushingTouchdowns");
-            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        TextView player = (TextView) findViewById(R.id.player1);
-        player.setText(playerName + playerStats);
+        return playerName + playerStats;
+    }
 
+    @NonNull
+    private String getStartedString(int index, JSONArray obj, String playerStats, String s, String s2) throws JSONException {
+        if (obj.getJSONObject(index).getString("Started").equals("1")) {
+            playerStats = playerStats + s;
+        } else {
+            playerStats = playerStats + s2;
+        }
+        return playerStats;
     }
 }
