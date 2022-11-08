@@ -20,8 +20,12 @@ public class BoxScore extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.box_score);
-//        In the future instead of just one file it will use the SportsDataIO with the saved team and week to retrieve json file
-        displayScore(getApplicationContext(), "arizona1.json", 0);
+//        In the future instead of just one file this will use the SportsDataIO with the saved team and week to retrieve json string
+        try {
+            displayScore(getApplicationContext(), getJSONString(getApplicationContext(),"arizona1.json"), 0);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
         LinearLayout ll = (LinearLayout) findViewById(R.id.scroll_layout);
         int arrSize = 0;
         try {
@@ -53,13 +57,11 @@ public class BoxScore extends AppCompatActivity {
         return jsonString;
     }
 
-    public void displayScore(Context context, String filename, int index) {
+    public void displayScore(Context context, String JsonString, int index) {
         JSONArray obj = null;
         try {
-            obj = new JSONArray(getJSONString(context, filename));
+            obj = new JSONArray(JsonString);
         } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
         String homeScore = null;
