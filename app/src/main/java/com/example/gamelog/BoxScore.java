@@ -15,29 +15,80 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class BoxScore extends AppCompatActivity {
+    public SportsDataIOReader io;
+    private Thread sportsData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.box_score);
-//        In the future instead of just one file this will use the SportsDataIO with the saved team and week to retrieve json string
+
         try {
-            displayScore(getApplicationContext(), getJSONString(getApplicationContext(),"arizona1.json"), 0);
+            displayScore(getJSONString(getApplicationContext(),"arizona1.json"), 0);
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+
+//        LinearLayout ll = (LinearLayout) findViewById(R.id.scroll_layout);
+//        int arrSize = 0;
+//        try {
+////            arrSize = new JSONArray(getJSONString(getApplicationContext(), "arizona1stats.json")).length();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        for (int i = 0; i < arrSize; i++) {
+//            TextView tv = new TextView(this);
+////            try {
+////                tv.setText(getPlayerStats(getJSONString(getApplicationContext(),"arizona1stats.json"), i));
+////            }
+////            catch (IOException e) {
+////                e.printStackTrace();
+////            } catch (JSONException e) {
+////                e.printStackTrace();
+////            }
+//            ll.addView(tv);
+//        }
         LinearLayout ll = (LinearLayout) findViewById(R.id.scroll_layout);
-        int arrSize = 0;
-        try {
-            arrSize = new JSONArray(getJSONString(getApplicationContext(), "arizona1stats.json")).length();
-        } catch (JSONException | IOException e) {
-            e.printStackTrace();
-        }
-        for (int i = 0; i < arrSize; i++) {
-            TextView tv = new TextView(this);
-            tv.setText(getPlayerStats(getApplicationContext(), "arizona1stats.json", i));
-            ll.addView(tv);
-        }
+        TextView tv = new TextView(this);
+        setIo("https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByTeam/", getWeekAbbreviation(Schedule.getWeek()),getTeamAbbreviation(HomeScreen.getTeam()));
+//
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String sportsData = io.getSportsData();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tv.setText(sportsData);
+                        ll.addView(tv);
+                    }
+                });
+            }
+        }).start();
+//        Thread sportsData = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                String sportsData = io.getSportsData();
+//                int arrSize = 0;
+//                try {
+//                    arrSize = new JSONArray(io.getSportsData()).length();
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                for (int i = 0; i < arrSize; i++) {
+//                    TextView tv = new TextView(getApplicationContext());
+//                    tv.setText(getPlayerStats(sportsData, i));
+//                    ll.addView(tv);
+//                }
+//
+//            }
+//        });
+//        sportsData.start();
+
     }
 
     public String getJSONString(Context context, String filename) throws IOException, JSONException {
@@ -57,10 +108,10 @@ public class BoxScore extends AppCompatActivity {
         return jsonString;
     }
 
-    public void displayScore(Context context, String JsonString, int index) {
+    public void displayScore(String jsonString, int index) {
         JSONArray obj = null;
         try {
-            obj = new JSONArray(JsonString);
+            obj = new JSONArray(jsonString);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -78,13 +129,11 @@ public class BoxScore extends AppCompatActivity {
         away.setText("Away Score: " + awayScore);
     }
 
-    public String getPlayerStats(Context context, String filename, int index) {
+    public String getPlayerStats(String jsonString, int index) {
         JSONArray obj = null;
         try {
-            obj = new JSONArray(getJSONString(context, filename));
+            obj = new JSONArray(jsonString);
         } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
         String playerName = null;
@@ -146,5 +195,65 @@ public class BoxScore extends AppCompatActivity {
             playerStats = playerStats + s2;
         }
         return playerStats;
+    }
+
+    public String getTeamAbbreviation(String teamName){
+        switch (teamName){
+            case "WASHINGTON COMMANDERS":
+                return "WAS";
+            case "ARIZONA CARDINALS":
+                return "ARI";
+            case "ATLANTA FALCONS":
+                return "ATL";
+        }
+        return null;
+    }
+
+    public String getWeekAbbreviation(String week){
+        switch(week){
+            case "Week 1":
+                return "1";
+            case "Week 2":
+                return "2";
+            case "Week 3":
+                return "3";
+            case "Week 4":
+                return "4";
+            case "Week 5":
+                return "5";
+            case "Week 6":
+                return "16";
+            case "Week 7":
+                return "7";
+            case "Week 8":
+                return "8";
+        }
+        return null;
+    }
+
+    public SportsDataIOReader getIo() {
+        return io;
+    }
+
+    public void setIo(String baseUrl, String week, String team) {
+        io = new SportsDataIOReader(baseUrl, week, team, getKey());
+    }
+
+    public String getKey(){
+        String key = null;
+        try {
+            InputStream is = getApplicationContext().getAssets().open("key.txt");
+
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            key = new String(buffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return key;
     }
 }
