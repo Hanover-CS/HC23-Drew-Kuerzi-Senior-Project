@@ -180,6 +180,15 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/las_vegas" />
             <Button
+                android:id="@+id/los_angeles2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:tag="LOS ANGELES CHARGERS"
+                android:text="LOS ANGELES CHARGERS"
+                android:onClick="nextPage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/los_angeles" />
+            <Button
                 android:id="@+id/miami"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"

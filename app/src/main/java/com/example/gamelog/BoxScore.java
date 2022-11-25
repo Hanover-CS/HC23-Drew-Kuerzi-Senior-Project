@@ -59,11 +59,23 @@ public class BoxScore extends AppCompatActivity {
             @Override
             public void run() {
                 String sportsData = io.getSportsData();
+                int arrSize = 0;
+                try {
+                    arrSize = new JSONArray(sportsData).length();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                int finalArrSize = arrSize;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        tv.setText(sportsData);
-                        ll.addView(tv);
+//                        tv.setText(sportsData);
+//                        ll.addView(tv);
+                        for (int i = 0; i < finalArrSize; i++) {
+                            TextView tv = new TextView(getApplicationContext());
+                            tv.setText(getPlayerStats(sportsData, i));
+                            ll.addView(tv);
+                        }
                     }
                 });
             }
@@ -199,12 +211,70 @@ public class BoxScore extends AppCompatActivity {
 
     public String getTeamAbbreviation(String teamName){
         switch (teamName){
-            case "WASHINGTON COMMANDERS":
-                return "WAS";
             case "ARIZONA CARDINALS":
                 return "ARI";
             case "ATLANTA FALCONS":
                 return "ATL";
+            case "BALTIMORE RAVENS":
+                return "BAL";
+            case "BUFFALO BILLS":
+                return "BUF";
+            case "CAROLINA PANTHERS":
+                return "CAR";
+            case "CHICAGO BEARS":
+                return "CHI";
+            case "CINCINNATI BENGALS":
+                return "CIN";
+            case "CLEVELAND BROWNS":
+                return "CLE";
+            case "DALLAS COWBOYS":
+                return "DAL";
+            case "DENVER BRONCOS":
+                return "DEN";
+            case "DETROIT LIONS":
+                return "DET";
+            case "GREEN BAY PACKERS":
+                return "GB";
+            case "HOUSTON TEXANS":
+                return "HOU";
+            case "INDIANAPOLIS COLTS":
+                return "IND";
+            case "JACKSONVILLE JAGUARS":
+                return "JAX";
+            case "KANSAS CITY CHIEFS":
+                return "KC";
+            case "LAS VEGAS RAIDERS":
+                return "LV";
+            case "LOS ANGELES RAMS":
+                return "LAR";
+            case "LOS ANGELES CHARGERS":
+                return "LAC";
+            case "MIAMI DOLPHINS":
+                return "MIA";
+            case "MINNESOTA VIKINGS":
+                return "MIN";
+            case "NEW ENGLAND PATRIOTS":
+                return "NE";
+            case "NEW ORLEANS SAINTS":
+                return "NO";
+            case "NEW YORK GIANTS":
+                return "NYG";
+            case "NEW YORK JETS":
+                return "NYJ";
+            case "PHILADELPHIA EAGLES":
+                return "PHI";
+            case "PITTSBURGH STEELERS":
+                return "PIT";
+            case "SAN FRANCISCO 49ERS":
+                return "SF";
+            case "SEATTLE SEAHAWKS":
+                return "SEA";
+            case "TAMPA BAY BUCCANEERS":
+                return "TB";
+            case "TENNESSEE TITANS":
+                return "TEN";
+            case "WASHINGTON COMMANDERS":
+                return "WAS";
         }
         return null;
     }
@@ -227,6 +297,26 @@ public class BoxScore extends AppCompatActivity {
                 return "7";
             case "Week 8":
                 return "8";
+            case "Week 9":
+                return "9";
+            case "Week 10":
+                return "10";
+            case "Week 11":
+                return "11";
+            case "Week 12":
+                return "12";
+            case "Week 13":
+                return "13";
+            case "Week 14":
+                return "14";
+            case "Week 15":
+                return "15";
+            case "Week 16":
+                return "16";
+            case "Week 17":
+                return "17";
+            case "Week 18":
+                return "18";
         }
         return null;
     }
