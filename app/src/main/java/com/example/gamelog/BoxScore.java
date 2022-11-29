@@ -16,45 +16,53 @@ import java.io.InputStream;
 
 public class BoxScore extends AppCompatActivity {
     public SportsDataIOReader io;
+    public SportsDataIOReader io2;
     private Thread sportsData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.box_score);
-
-        try {
-            displayScore(getJSONString(getApplicationContext(),"arizona1.json"), 0);
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
-        }
-
-//        LinearLayout ll = (LinearLayout) findViewById(R.id.scroll_layout);
-//        int arrSize = 0;
-//        try {
-////            arrSize = new JSONArray(getJSONString(getApplicationContext(), "arizona1stats.json")).length();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        for (int i = 0; i < arrSize; i++) {
-//            TextView tv = new TextView(this);
-////            try {
-////                tv.setText(getPlayerStats(getJSONString(getApplicationContext(),"arizona1stats.json"), i));
-////            }
-////            catch (IOException e) {
-////                e.printStackTrace();
-////            } catch (JSONException e) {
-////                e.printStackTrace();
-////            }
-//            ll.addView(tv);
-//        }
+        setIo2("https://api.sportsdata.io/v3/nfl/stats/json/TeamGameStats/", getWeekAbbreviation(Schedule.getWeek()));
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String sportsData = io2.getSportsData();
+                int arrSize = 0;
+                try {
+                    arrSize = new JSONArray(sportsData).length();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                int finalArrSize = arrSize;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        JSONArray obj = null;
+                        int index = 0;
+                        try {
+                            obj = new JSONArray(sportsData);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        for (int i = 0; i < finalArrSize; i++) {
+                            try {
+                                String team = obj.getJSONObject(i).getString("Team");
+                                if (team.equals(getTeamAbbreviation(HomeScreen.getTeam()))){
+                                    index = i;
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        displayScore(sportsData, index);
+                    }
+                });
+            }
+        }).start();
         LinearLayout ll = (LinearLayout) findViewById(R.id.scroll_layout);
         TextView tv = new TextView(this);
         setIo("https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByTeam/", getWeekAbbreviation(Schedule.getWeek()),getTeamAbbreviation(HomeScreen.getTeam()));
-//
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -69,8 +77,6 @@ public class BoxScore extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-//                        tv.setText(sportsData);
-//                        ll.addView(tv);
                         for (int i = 0; i < finalArrSize; i++) {
                             TextView tv = new TextView(getApplicationContext());
                             tv.setText(getPlayerStats(sportsData, i));
@@ -80,44 +86,6 @@ public class BoxScore extends AppCompatActivity {
                 });
             }
         }).start();
-//        Thread sportsData = new Thread(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                String sportsData = io.getSportsData();
-//                int arrSize = 0;
-//                try {
-//                    arrSize = new JSONArray(io.getSportsData()).length();
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                for (int i = 0; i < arrSize; i++) {
-//                    TextView tv = new TextView(getApplicationContext());
-//                    tv.setText(getPlayerStats(sportsData, i));
-//                    ll.addView(tv);
-//                }
-//
-//            }
-//        });
-//        sportsData.start();
-
-    }
-
-    public String getJSONString(Context context, String filename) throws IOException, JSONException {
-        String jsonString = null;
-        try {
-            InputStream is = context.getAssets().open(filename);
-
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            jsonString = new String(buffer, "UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return jsonString;
     }
 
     public void displayScore(String jsonString, int index) {
@@ -328,6 +296,11 @@ public class BoxScore extends AppCompatActivity {
     public void setIo(String baseUrl, String week, String team) {
         io = new SportsDataIOReader(baseUrl, week, team, getKey());
     }
+
+    public void setIo2(String baseUrl, String week) {
+        io2 = new SportsDataIOReader(baseUrl, week, getKey());
+    }
+
 
     public String getKey(){
         String key = null;
