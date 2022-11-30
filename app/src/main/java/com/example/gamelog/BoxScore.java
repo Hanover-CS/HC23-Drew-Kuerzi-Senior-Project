@@ -23,7 +23,8 @@ public class BoxScore extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.box_score);
-        setIo2("https://api.sportsdata.io/v3/nfl/stats/json/TeamGameStats/", getWeekAbbreviation(Schedule.getWeek()));
+        setIo2("https://api.sportsdata.io/v3/nfl/stats/json/TeamGameStats/",
+                getWeekAbbreviation(Schedule.getWeek()));
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -62,7 +63,8 @@ public class BoxScore extends AppCompatActivity {
         }).start();
         LinearLayout ll = (LinearLayout) findViewById(R.id.scroll_layout);
         TextView tv = new TextView(this);
-        setIo("https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByTeam/", getWeekAbbreviation(Schedule.getWeek()),getTeamAbbreviation(HomeScreen.getTeam()));
+        setIo("https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByTeam/",
+                getWeekAbbreviation(Schedule.getWeek()),getTeamAbbreviation(HomeScreen.getTeam()));
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -109,66 +111,39 @@ public class BoxScore extends AppCompatActivity {
         away.setText("Away Score: " + awayScore);
     }
 
-    public String getPlayerStats(String jsonString, int index) {
+    public String getPlayerStats(String jsonString, int index){
         JSONArray obj = null;
         try {
             obj = new JSONArray(jsonString);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        String playerName = null;
-        String playerStats = null;
+        Player player = new Player(obj, index);
+        player.setPlayerName();
         try {
-            playerName = obj.getJSONObject(index).getString("Name");
-            if (obj.getJSONObject(index).getString("Position").equals("QB")) {
-                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
-                        + " Pass Attempts: " + obj.getJSONObject(index).getString("PassingAttempts") + "\n"
-                        + " Completions: " + obj.getJSONObject(index).getString("PassingCompletions") + "\n"
-                        + " Passing Yards: " + obj.getJSONObject(index).getString("PassingYards") + "\n"
-                        + " Touchdowns: " + obj.getJSONObject(index).getJSONArray("ScoringDetails").length() + "\n";
-                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
-            } else if (obj.getJSONObject(index).getString("Position").equals("WR")) {
-                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
-                        + ": Targets: " + obj.getJSONObject(index).getString("ReceivingTargets") + "\n"
-                        + " Receptions: " + obj.getJSONObject(index).getString("Receptions") + "\n"
-                        + " Receiving Yards: " + obj.getJSONObject(index).getString("ReceivingYards") + "\n"
-                        + " Touchdowns: " + obj.getJSONObject(index).getString("ReceivingTouchdowns") + "\n";
-                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+            if(obj.getJSONObject(index).getString("Position").equals("QB")){
+                player.setPlayerQBStat();
             } else if (obj.getJSONObject(index).getString("Position").equals("TE")) {
-                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
-                        + ": Targets: " + obj.getJSONObject(index).getString("ReceivingTargets") + "\n"
-                        + " Receptions: " + obj.getJSONObject(index).getString("Receptions") + "\n"
-                        + " Receiving Yards: " + obj.getJSONObject(index).getString("ReceivingYards") + "\n"
-                        + " Touchdowns: " + obj.getJSONObject(index).getString("ReceivingTouchdowns") + "\n";
-                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+                player.setPlayerTEStat();
+            } else if (obj.getJSONObject(index).getString("Position").equals("TE")) {
+                player.setPlayerTEStat();
             } else if (obj.getJSONObject(index).getString("Position").equals("RB")) {
-                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
-                        + ": Rush Attempts: " + obj.getJSONObject(index).getString("RushingAttempts") + "\n"
-                        + " Rushing Yards: " + obj.getJSONObject(index).getString("RushingYards") + "\n"
-                        + " Touchdowns: " + obj.getJSONObject(index).getString("RushingTouchdowns") + "\n";
-                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+                player.setPlayerRBStat();
             } else if (obj.getJSONObject(index).getString("PositionCategory").equals("DEF")) {
-                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n"
-                        + ": Passes Defended: " + obj.getJSONObject(index).getString("PassesDefended") + "\n"
-                        + " Interceptions: " + obj.getJSONObject(index).getString("Interceptions") + "\n"
-                        + " Sacks: " + obj.getJSONObject(index).getString("Sacks") + "\n"
-                        + " Fumbles Forced: " + obj.getJSONObject(index).getString("FumblesForced") + "\n"
-                        + " Solo Tackles: " + obj.getJSONObject(index).getString("SoloTackles") + "\n"
-                        + " Assisted Tackles: " + obj.getJSONObject(index).getString("AssistedTackles") + "\n";
-                playerStats = getStartedString(index, obj, playerStats, " Started this game \n", " Did not start this game \n");
+                player.setPlayerDEFStat();
             } else if (obj.getJSONObject(index).getString("Position").equals("OL")) {
-                playerStats = "\n Position: " + obj.getJSONObject(index).getString("Position") + "\n";
-                playerStats = getStartedString(index, obj, playerStats, ": Started this game \n", ": Did not start this game \n");
+                player.setPlayerOLStat();
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return playerName + playerStats;
+        return player.getPlayerName() + player.getPlayerStat();
     }
 
+
     @NonNull
-    private String getStartedString(int index, JSONArray obj, String playerStats, String s, String s2) throws JSONException {
+    private String getStartedString(int index, JSONArray obj, String playerStats,
+                                    String s, String s2) throws JSONException {
         if (obj.getJSONObject(index).getString("Started").equals("1")) {
             playerStats = playerStats + s;
         } else {
