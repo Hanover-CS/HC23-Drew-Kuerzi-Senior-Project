@@ -33,10 +33,10 @@ public class BoxScore extends AppCompatActivity {
     /**
      * @param savedInstanceState
      * Initializes io2 to communicate with the api address for scores
-     * Starts thread to update score while also reading and writing to the UI
+     * Starts thread to retrieve and update score while also reading and writing to the UI
      *
      * Initializes io to communicate with the api address for player stats
-     * Starts another thread to update player stats while also reading and writing to the UI
+     * Starts another thread to retrieve and update player stats while also reading and writing to the UI
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
