@@ -14,11 +14,30 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Activity to retrieve the scores and stats from the api using the SportsDataIOReader class
+ * and populate a boxscore using the Player class
+ */
 public class BoxScore extends AppCompatActivity {
-    public SportsDataIOReader io;
-    public SportsDataIOReader io2;
-    private Thread sportsData;
 
+    /**
+     * SportsDataIOReader to receive player stat information form the api
+     */
+    public SportsDataIOReader io;
+
+    /**
+     * SportsDataIOReader to receive game score from the api
+     */
+    public SportsDataIOReader io2;
+
+    /**
+     * @param savedInstanceState
+     * Initializes io2 to communicate with the api address for scores
+     * Starts thread to update score while also reading and writing to the UI
+     *
+     * Initializes io to communicate with the api address for player stats
+     * Starts another thread to update player stats while also reading and writing to the UI
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +109,11 @@ public class BoxScore extends AppCompatActivity {
         }).start();
     }
 
+    /**
+     * @param jsonString String from the json file received from the api, to be turned into a json array
+     * @param index int correlating with the index in which the score should be received from in the json array
+     * Retrieves the scores at the correct index and puts them in a text view
+     */
     public void displayScore(String jsonString, int index) {
         JSONArray obj = null;
         try {
@@ -111,6 +135,12 @@ public class BoxScore extends AppCompatActivity {
         away.setText("Away Score: " + awayScore);
     }
 
+    /**
+     * @param jsonString String from the json file received from the api, to be turned into a json array
+     * @param index int correlating with the index in which the stats should be received from in the json array
+     * Retrieves the stats at the correct index and puts them in a text view
+     * Dynamically writes the stats to the textview for the correct player that is read from the json array
+     */
     public String getPlayerStats(String jsonString, int index){
         JSONArray obj = null;
         try {
@@ -152,6 +182,10 @@ public class BoxScore extends AppCompatActivity {
         return playerStats;
     }
 
+    /**
+     * @param teamName Team name passed in from the team selected in the HomeScreen Activity
+     * @return The abbreviation that will be used to create the correct url to access the api
+     */
     public String getTeamAbbreviation(String teamName){
         switch (teamName){
             case "ARIZONA CARDINALS":
@@ -222,6 +256,10 @@ public class BoxScore extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * @param week Week passed in from the week selected in the Schedule Activity
+     * @return The abbreviation that will be used to create the correct url to access the api
+     */
     public String getWeekAbbreviation(String week){
         switch(week){
             case "Week 1":
