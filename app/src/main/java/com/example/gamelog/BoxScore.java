@@ -171,17 +171,6 @@ public class BoxScore extends AppCompatActivity {
     }
 
 
-    @NonNull
-    private String getStartedString(int index, JSONArray obj, String playerStats,
-                                    String s, String s2) throws JSONException {
-        if (obj.getJSONObject(index).getString("Started").equals("1")) {
-            playerStats = playerStats + s;
-        } else {
-            playerStats = playerStats + s2;
-        }
-        return playerStats;
-    }
-
     /**
      * @param teamName Team name passed in from the team selected in the HomeScreen Activity
      * @return The abbreviation that will be used to create the correct url to access the api
@@ -300,10 +289,6 @@ public class BoxScore extends AppCompatActivity {
                 return "18";
         }
         return null;
-    }
-
-    public SportsDataIOReader getIo() {
-        return io;
     }
 
     public void setIo(String baseUrl, String week, String team) {
