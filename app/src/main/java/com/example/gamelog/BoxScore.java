@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ import java.io.InputStream;
 public class BoxScore extends AppCompatActivity {
 
     /**
-     * SportsDataIOReader to receive player stat information form the api
+     * SportsDataIOReader to receive player stat information from the api
      */
     public SportsDataIOReader io;
 
@@ -155,8 +156,8 @@ public class BoxScore extends AppCompatActivity {
                 player.setPlayerQBStat();
             } else if (obj.getJSONObject(index).getString("Position").equals("TE")) {
                 player.setPlayerTEStat();
-            } else if (obj.getJSONObject(index).getString("Position").equals("TE")) {
-                player.setPlayerTEStat();
+            } else if (obj.getJSONObject(index).getString("Position").equals("WR")) {
+                player.setPlayerWRStat();
             } else if (obj.getJSONObject(index).getString("Position").equals("RB")) {
                 player.setPlayerRBStat();
             } else if (obj.getJSONObject(index).getString("PositionCategory").equals("DEF")) {
