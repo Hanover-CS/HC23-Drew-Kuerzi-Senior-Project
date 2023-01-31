@@ -16,7 +16,7 @@ public class Schedule extends AppCompatActivity {
 
     /**
      * @param savedInstanceState
-     * Method that is automaticality ran when the activity is created
+     * Method that is automatically ran when the activity is created
      * Sets the view to the schedule layout to display buttons
      */
     @Override
